@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build  -t tmatt/frontend -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true suunyzhou/docker-learning-fontend npm run test
+
+language: generic 
